@@ -1,4 +1,3 @@
 ---
-title: NUXT<span class="text-nuxt-lightgreen">JS</span> rendering
+title: Litekart <span class="text-nuxt-lightgreen">Grocery</span> rendering
 ---
-

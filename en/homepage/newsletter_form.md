@@ -1,4 +1,5 @@
 ---
-title: Nuxt<span class="text-nuxt-lightgreen">JS</span> Newsletter
+title: Litekart <span class="text-nuxt-lightgreen">Newsletter</span>
 ---
-Get the latest Nuxt news to your inbox, curated by the core team and contributors.
+
+Get the latest Litekart news to your inbox, curated by the core team and contributors.

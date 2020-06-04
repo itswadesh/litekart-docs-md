@@ -1,4 +1,5 @@
 ---
-title: Why Nuxt?
+title: Why Litekart?
 ---
-Why NUXT<span class="text-nuxt-lightgreen">JS</span>
+
+Why LITEKART <span class="text-nuxt-lightgreen">Grocery</span>

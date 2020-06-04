@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Prologue",
+    "links": [
+      {
+        "to": "",
+        "name": "Introduction",
+        "contents": [
+          {
+            "to": "#what-is-nuxtjs-",
+            "name": "What is Nuxt.js?"
+          },
+          {
+            "to": "#features",
+            "name": "Features"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Getting Started",
+    "links": [
+      {
+        "to": "#introduction",
+        "name": "Introduction",
+        "contents": [
+          {
+            "to": "#using-code-create-nuxt-app-code-",
+            "name": "Using create-nuxt-app"
+          },
+          {
+            "to": "#starting-from-scratch",
+            "name": "Starting from scratch"
+          }
+        ]
+      },
+      {
+        "to": "#store-front",
+        "name": "Store Front",
+        "contents": [
+          {
+            "to": "#directories",
+            "name": "Directories"
+          },
+          {
+            "to": "#aliases",
+            "name": "Aliases"
+          }
+        ]
+      },
+      {
+        "to": "#store-back-office",
+        "name": "Store Back Office"
+      },
+      {
+        "to": "#technology-and-hosting",
+        "name": "Technology and Hosting"
+      },
+      {
+        "to": "#user-management",
+        "name": "User Management"
+      },
+      {
+        "to": "#for-developers",
+        "name": "For Developers"
+      },
+      {
+        "to": "#highlights",
+        "name": "Highlights"
+      },
+      {
+        "to": "#products-and-merchantizing",
+        "name": "Products and merchantizing"
+      },
+      {
+        "to": "#orders-and-checkout",
+        "name": "Orders and checkout"
+      },
+      {
+        "to": "#payments",
+        "name": "Payments"
+      }
+    ]
+  }
+]

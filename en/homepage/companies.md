@@ -1,3 +1,3 @@
 ---
-title: Who's using nuxt<span class="text-nuxt-lightgreen">JS</span>
+title: Who's using litekart <span class="text-nuxt-lightgreen">ecommerce</span>
 ---

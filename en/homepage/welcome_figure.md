@@ -1,4 +1,5 @@
 ---
-title: Welcome figure - video
+title: Welcome figure - banner
 ---
-Video produced by <a href="https://www.vuemastery.com" target="_blank" rel="noopener">Vue Mastery</a>, download their free <a href="https://www.vuemastery.com/nuxt-cheat-sheet/" target="_blank" rel="noopener">Nuxt Cheat Sheet</a>.
+
+Grab it for $99 (+ optional extended license for $999).
