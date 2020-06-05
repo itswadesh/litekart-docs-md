@@ -8,7 +8,7 @@
         "contents": [
           {
             "to": "#what-is-nuxtjs-",
-            "name": "What is Nuxt.js?"
+            "name": "What is Litekart?"
           },
           {
             "to": "#features",
@@ -17,22 +17,6 @@
           {
             "to": "#how-it-works",
             "name": "How it Works"
-          },
-          {
-            "to": "#schema",
-            "name": "Schema"
-          },
-          {
-            "to": "#server-rendered-universal-ssr-",
-            "name": "Server Rendered"
-          },
-          {
-            "to": "#single-page-applications-spa-",
-            "name": "Single Page Application"
-          },
-          {
-            "to": "#static-generated-pre-rendering-",
-            "name": "Static Generated"
           }
         ]
       }

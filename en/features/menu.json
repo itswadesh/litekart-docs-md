@@ -1,25 +1,6 @@
 [
   {
-    "title": "Prologue",
-    "links": [
-      {
-        "to": "",
-        "name": "Introduction",
-        "contents": [
-          {
-            "to": "#what-is-nuxtjs-",
-            "name": "What is Nuxt.js?"
-          },
-          {
-            "to": "#features",
-            "name": "Features"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Getting Started",
+    "title": "Features List",
     "links": [
       {
         "to": "#introduction",

@@ -17,18 +17,6 @@
       "slug": "features",
       "type": "dynamic",
       "routeName": "section-slug"
-    },
-    {
-      "name": "Examples",
-      "slug": "examples",
-      "type": "dynamic",
-      "routeName": "section-slug"
-    },
-    {
-      "name": "FAQ",
-      "slug": "faq",
-      "type": "dynamic",
-      "routeName": "section-slug"
     }
   ],
   "text": {
