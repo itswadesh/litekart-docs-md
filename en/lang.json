@@ -29,15 +29,15 @@
   },
   "homepage": {
     "meta": {
-      "title": "Nuxt.js - The Intuitive Vue Framework",
-      "description": "Build your next Vue.js application with confidence using NuxtJS. An open source framework making web development simple and powerful."
+      "title": "Litekart - The Intuitive ecommerce platform",
+      "description": "Build your next ecommerce application with confidence using Litekart. An ecommerce platform making ecommerce development simple and powerful."
     },
     "welcome": {
       "get_started": "get started",
       "github_stars": "Get a demo"
     },
     "why": {
-      "try_nuxtjs_online": "Try NuxtJS Online"
+      "try_nuxtjs_online": "Try Litekart Online"
     },
     "sponsors": {
       "become_a_sponsor": "Become a sponsor"
