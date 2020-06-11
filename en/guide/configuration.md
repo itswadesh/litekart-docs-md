@@ -1,380 +1,392 @@
 ---
 title: Configuration
-description: By default, Litekart is configured to cover most use cases. This default configuration can be overwritten by using the config.ts file.
+description: By default, Litekart is configured to cover most use cases. This default configuration can be overwritten by using the files inside config directory.
 ---
 
-> By default, Litekart is configured to cover most use cases. This default configuration can be overwritten by using the config.ts file.
+> By default, Litekart is configured to cover most use cases. This default configuration can be overwritten by using the files inside config directory.
 
 ## Client Settings
 
-Path: <em>config.js</em>
+### Client Secrets (Must be changed)
 
-### General Variables
+Path: <em>.env</em>
 
 ```js
-proxy: 'http://localhost:3000', //proxy: 'https://admin.arialshop.com',
-WS_URL: 'http://localhost:9000', //proxy: 'https://admin.arialshop.com' Used at plugins/socketjs,
-STRIPE_URL: 'https://api.stripe.com',
-STRIPE_PUBLISHABLE_KEY: 'pk_test_REST_OF_YOUR_KEY',
-ANALYTICS_TRACKING_ID: 'UA-ANALYTICS-ID',
-GOOGLE_MAPS_API_KEY: 'GOOGLE_MAPS_API_KEY',
-typingTimeout: 700, // Used for searching e.g. search.vue
-loadingTimeout: 500, // Used for showing the loading indicator at each page
-snackTimer: 5000, // The amount of time  the snackbar should be visible
-recordsPerScroll: 50, // At a time 50 records will be called from api unless specified explicitly
-clearCart: true // Whether to clear the cart after order is placed. Useful while testing
+HTTP_ENDPOINT=http://localhost:7700
+WS_ENDPOINT=ws://localhost:7700
+GOOGLE_MAPS_API_KEY=AIzaSyCYDdBORAAuErqPZ8LomCSr-REST_OF_YOUR_GOOGLE_MAPS_API_KEY
+ONESIGNAL_APP_ID=cb37a0dc-REST_OF_YOUR_ONESIGNAL_APP_ID
+STRIPE_PUBLISHABLE_KEY=pk_test_REST_OF_YOUR_STRIPE_PUBLISHABLE_KEY
+WEBSITE_NAME=Litekart
+GOOGLE_ANALYTICS_ID=
 ```
 
-<!--
-### List of order status for order management
-``` js
-export const orderStatuses = ['Payment Pending', 'Order Placed', 'Order Accepted', 'Order Executed', 'Shipped', 'Delivered', 'Not in Stock', 'Cancellation Requested', 'Cancelled']
-```
-### List of payment status for order management
-``` js
-export const paymentStatuses = ['Pending', 'Cancelled', 'Paid']
+### General Variables (Optional)
+
+Path: <em>shared/config/index.js</em>
+
+```js
+export const typingTimeout = 200; // After this delay the search api will be fired
+export const loadingTimeout = 500; // Loading indicator will be shown after this delay // used at Loading.vue of admin
+
+export const { HTTP_ENDPOINT = "https://gapi.litekart.in" } = process.env;
+
+export const { WS_ENDPOINT = "wss://gapi.litekart.in" } = process.env;
+
+export const { GOOGLE_ANALYTICS_ID = "UA-49421899-13" } = process.env;
+
+export const { STRIPE_PUBLISHABLE_KEY = "pk_test_" } = process.env;
+
+export const { ONESIGNAL_APP_ID = "" } = process.env;
+
+export const { GOOGLE_MAPS_API_KEY = "" } = process.env;
+
+export const { WEBSITE_NAME = "Litekart" } = process.env;
+
+export const HEAD = {
+  titleTemplate: `%s - ${WEBSITE_NAME}`,
+  htmlAttrs: { lang: "en" },
+  meta: [
+    { charset: "utf-8" },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1, user-scalable=no",
+    },
+    { "http-equiv": "x-ua-compatible", content: "ie=edge" },
+  ],
+  link: [
+    { rel: "icon", type: "image/x-icon", href: "favicon.ico" },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css?family=Nunito&display=swap",
+    },
+  ],
+};
 ```
 
-### Enabled payment methods for ecommerce
-``` js
-export const paymentMethods = ['PayPal', 'COD']
-```   -->
+## Server Configurations
+
+### Server Secrets (Must be updated)
+
+```js
+MONGO_INITDB_ROOT_USERNAME=root
+MONGO_INITDB_ROOT_PASSWORD=secret
+MONGO_INITDB_DATABASE=litekart-gro
+
+MONGO_USERNAME=admin
+MONGO_PASSWORD=secret
+MONGO_DATABASE=litekart-gro
+
+SESSION_SECRET=ssh!secret!
+
+REDIS_PASSWORD=secret
+
+APP_PORT=7700
+APP_ORIGIN=http://localhost:7777
+
+FACEBOOK_APP_ID=
+FACEBOOK_APP_SECRET=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+OPENCAGE_KEY=
+GOOGLE_MAPS_KEY=
+
+STRIPE_SECRET_KEY=
+RAZORPAY_KEY_ID=
+RAZORPAY_KEY_SECRET=
+
+SENDGRID_API_KEY=
+FAST2SMS_KEY=
+FAST2SMS_SENDER_ID=FSTSMS
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+
+SENTRY_DNS=
+```
 
 ### User roles
 
 ```js
-userRoles: ['user', 'vendor', 'manager', 'admin'], // This should be in ascending order of authority. e.g. In this case guest will not have access to any other role, where as admin will have the role of guest+user+vendor+manager+admin
+userRoles: ['user', 'vendor', 'delivery', 'manager', 'admin'], // This should be in ascending order of authority. e.g. In this case guest will not have access to any other role, where as admin will have the role of guest+user+vendor+delivery+manager+admin
 ```
 
-### Regional settings
+### Store settings
 
 ```js
-country: { name: 'India', code: 'IN' },
-currency: {
-    symbol: '₹',
-    code: 'INR', // Shop currency
-    paypal: 'USD',// Paypal currency code *** Please choose from https://developer.paypal.com/docs/classic/api/currency_codes/
-    exchange_rate: '0.015' // Paypal currency code(USD) / Shop currency (INR) ***  exchange_rate should not be 0 else it will generate divided by 0 error
-},
+export const SHOP_NAME = "Litekart";
 
+export const PAY_MESSAGE = "Payment for grocery @ " + SHOP_NAME;
+
+export const ORDER_PREFIX = "L";
+
+export const STATIC_PATH = "./../grocery-assets";
+
+export const SEED_DATABASE = true; // It consumes huge memory and throws out of memory exception. Seeds database with some demo data when the database is empty.
+
+export const UPLOAD_DIR = "/images/";
+
+export const FROM_TWILIO_PHONE_NUMBER = "+15005550006";
+
+export const FAST2SMS_TEMPLATE_ID = 1372;
+
+// Store delivery time configuration
+export const startT = { h: 8, m: 0 };
+export const start = "10:00 pm";
+export const endT = { h: 6, m: 0 };
+export const end = "06:00 am";
+
+export const closed = {
+  from: { hour: 13, minute: 44 },
+  to: { hour: 13, minute: 59 },
+  message: "Sorry we are closed from 1:44 PM to 1:59 PM",
+};
+// prettier-ignore
+export const userRoles = ['user', 'delivery', 'vendor', 'manager', 'admin'] // This should be in ascending order of authority. e.g. In this case guest will not have access to any other role, where as admin will have the role of guest+user+vendor+manager+admin
+
+export const language = "en";
+// prettier-ignore
+export const worldCurrencies = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BOV', 'BRL', 'BSD', 'BTN', 'BWP', 'BYN', 'BZD', 'CAD', 'CDF', 'CHE', 'CHF', 'CHW', 'CLF', 'CLP', 'CNY', 'COP', 'COU', 'CRC', 'CUC', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'FJD', 'FKP', 'GBP', 'GEL', 'GHS', 'GIP', 'GMD', 'GNF', 'GTQ', 'GYD', 'HKD', 'HNL', 'HRK', 'HTG', 'HUF', 'IDR', 'ILS', 'INR', 'IQD', 'IRR', 'ISK', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRU', 'MUR', 'MVR', 'MWK', 'MXN', 'MXV', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NOK', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SLL', 'SOS', 'SRD', 'SSP', 'STN', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TRY', 'TTD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'USN', 'UYI', 'UYU', 'UZS', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XDR', 'XOF', 'XPF', 'XSU', 'XUA', 'YER', 'ZAR', 'ZMW', 'ZWL']
+
+export const sorts = [
+  { name: "Relevance", val: null },
+  { name: "Whats New", val: "-createdAt" },
+  { name: "Price low to high", val: "price" },
+  { name: "Price high to low", val: "-price" },
+];
+export const paymentStatuses = ["pending", "cancelled", "paid"];
+export const orderStatuses = [
+  {
+    status: "Waiting for confirmation",
+    title: "Order Placed Successfully",
+    body: "Waiting for the vendor to confirm the order",
+    icon: "/images/order/order.png",
+    public: true,
+    index: 1,
+  },
+  {
+    status: "Packed",
+    title: "Package is Ready!!",
+    body: "Your order is ready for pickup",
+    icon: "/images/order/package.png",
+    public: true,
+    index: 2,
+  },
+  {
+    status: "Out for delivery",
+    title: "Vroom Vroom!!",
+    body: "Order has been picked up and on the way",
+    icon: "/images/order/delivery-boy.png",
+    public: true,
+    index: 3,
+  },
+  {
+    status: "Delivered",
+    title: "Order Delivered",
+    body: "The order has been delivered to you",
+    icon: "/images/order/delivered.png",
+    public: true,
+    index: 4,
+  },
+  {
+    status: "Payment Pending",
+    title: "Payment Pending",
+    body: "Payment for order is pending",
+    icon: "/images/order/shopping-bag.png",
+    public: false,
+    index: 5,
+  },
+  {
+    status: "NIS",
+    title: "Not in stock",
+    body: "Item is out of stock and could not delivered",
+    icon: "/images/order/shopping-bag.png",
+    public: false,
+    index: 6,
+  },
+  {
+    status: "Cancelled",
+    title: "Order Cancelled",
+    body: "Order cancelled by user",
+    icon: "/images/order/shopping-bag.png",
+    public: false,
+    index: 7,
+  },
+];
+// prettier-ignore
+export const timesList = ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM', '12 AM']
 ```
 
-### Menu for dashboad and header
+### Menu Items (Userd at left menu of admin panel)
 
 ```js
-menuItems: [
-  { text: 'Dashboard', url: '/admin', icon: 'dashboard', authenticate: 'manager', color: 'black', dashboard: true },
-  { text: 'Orders', url: '/admin/orders', icon: 'watch_later', authenticate: 'user', color: 'pink', dashboard: true },
-  { text: 'My Reviews', url: '/admin/reviews', icon: 'stars', authenticate: 'user', color: 'blue', dashboard: true },
-  { text: 'Manage Address', url: '/admin/address', icon: 'location_on', authenticate: 'user', color: 'dark', dashboard: true },
-  { text: 'My Wishlist', url: '/admin/wishlist', icon: 'favorite', authenticate: 'user', color: 'green', dashboard: true },
-  { text: 'Profile', url: '/account/profile', authenticate: 'user', icon: 'person_pin', color: 'purple' },
-  { text: 'Change Password', url: '/account/change-password', authenticate: 'user', icon: 'lock', color: 'brown' }
-],
-```
-
-## Server Settings-1
-
-path: <em>config.js</em>
-
-### User roles and regional settings
-
-```js
-userRoles: ['user', 'vendor', 'manager', 'admin'], // This should be in ascending order of authority. e.g. In this case guest will not have access to any other role, where as admin will have the role of guest+user+vendor+manager+admin
-currency: { // Used at filter/
-  symbol: '₹',
-  code: 'INR', // Shop currency
-  paypal: 'USD',// Paypal currency code *** Please choose from https://developer.paypal.com/docs/classic/api/currency_codes/
-  exchange_rate: '1' // Paypal currency code(USD) / Shop currency (INR) ***  exchange_rate should not be 0 else it will generate divided by 0 error
-},
-```
-
-### Menu Items (Userd at left menu and topmenu)
-
-```js
-menuItems: [
+[
   {
-    text: 'Dashboard',
-    url: '/',
-    icon: 'dashboard',
-    authenticate: 'vendor',
-    color: 'black',
-    dashboard: true
+    icon: "store",
+    title: "Catalogue",
+    items: [
+      {
+        title: "Products",
+        href: "/products",
+        icon: "store",
+        authenticate: "manager",
+        color: "black",
+        dashboard: true,
+      },
+      {
+        title: "Categories",
+        href: "/categories",
+        icon: "store",
+        authenticate: "manager",
+        color: "black",
+        dashboard: true,
+      },
+      {
+        title: "Coupons",
+        href: "/coupons",
+        icon: "style",
+        authenticate: "admin",
+        color: "pink",
+        dashboard: true,
+      },
+    ],
   },
   {
-    text: 'Products',
-    url: '/products/search/',
-    icon: 'store',
-    authenticate: 'vendor',
-    color: 'black',
-    dashboard: true
+    icon: "local_shipping",
+    title: "Transactions",
+    items: [
+      {
+        title: "Orders",
+        href: "/orders",
+        icon: "store",
+        authenticate: "manager",
+        color: "black",
+        dashboard: true,
+      },
+      {
+        title: "Payments",
+        href: "/payments",
+        icon: "payment",
+        authenticate: "admin",
+        color: "red",
+        dashboard: true,
+      },
+    ],
   },
   {
-    text: 'Manage Orders',
-    url: '/orders',
-    icon: 'history',
-    authenticate: 'vendor',
-    color: 'orange',
-    dashboard: true
+    icon: "email",
+    title: "Email Templates",
+    items: [
+      {
+        title: "Change Password",
+        href: "/emails/user/change-password",
+        icon: "store",
+        authenticate: "manager",
+        color: "black",
+        dashboard: true,
+      },
+      {
+        title: "Order Created",
+        href: "/emails/order/created",
+        icon: "stars",
+        authenticate: "vendor",
+        color: "blue",
+        dashboard: true,
+      },
+      {
+        title: "Order Updated",
+        href: "/emails/order/updated",
+        icon: "style",
+        authenticate: "admin",
+        color: "pink",
+        dashboard: true,
+      },
+      {
+        title: "Reset Password",
+        href: "/emails/user/reset-password",
+        icon: "style",
+        authenticate: "admin",
+        color: "pink",
+        dashboard: true,
+      },
+      {
+        title: "Reset",
+        href: "/emails/user/reset",
+        icon: "style",
+        authenticate: "admin",
+        color: "pink",
+        dashboard: true,
+      },
+    ],
   },
   {
-    text: 'Manage Reviews',
-    url: '/reviews',
-    icon: 'stars',
-    authenticate: 'vendor',
-    color: 'blue',
-    dashboard: true
+    icon: "settings",
+    title: "Settings",
+    items: [
+      {
+        title: "Store",
+        href: "/settings/store",
+        authenticate: "admin",
+        icon: "settings",
+      },
+      {
+        title: "Banners",
+        href: "/banners",
+        icon: "burst_mode",
+        authenticate: "manager",
+        color: "yellow",
+        dashboard: true,
+      },
+      {
+        title: "Image",
+        href: "/settings/image",
+        authenticate: "admin",
+        icon: "settings",
+      },
+      {
+        title: "SEO",
+        href: "/settings/seo",
+        authenticate: "admin",
+        icon: "settings",
+      },
+      {
+        title: "SMS / Email",
+        href: "/settings/email",
+        authenticate: "admin",
+        icon: "settings",
+      },
+      {
+        title: "Payments",
+        href: "/settings/payments",
+        authenticate: "admin",
+        icon: "settings",
+      },
+      {
+        title: "Pages",
+        href: "/pages",
+        icon: "style",
+        authenticate: "admin",
+        color: "pink",
+        dashboard: true,
+      },
+      {
+        title: "Delivery Locations",
+        href: "/cities",
+        icon: "style",
+        authenticate: "admin",
+        color: "pink",
+        dashboard: true,
+      },
+      {
+        title: "Export",
+        href: "/export",
+        icon: "burst_mode",
+        authenticate: "manager",
+        color: "yellow",
+        dashboard: true,
+      },
+    ],
   },
-  {
-    text: 'Media Library',
-    url: '/media',
-    icon: 'perm_media',
-    authenticate: 'vendor',
-    color: 'teal',
-    dashboard: true
-  },
-  {
-    text: 'Brands',
-    url: '/brands',
-    icon: 'wb_auto',
-    authenticate: 'manager',
-    color: 'purple',
-    dashboard: true
-  },
-  {
-    text: 'Categories',
-    url: '/categories',
-    icon: 'view_comfy',
-    authenticate: 'vendor',
-    color: 'light-blue',
-    dashboard: true
-  },
-  {
-    text: 'Features',
-    url: '/features',
-    icon: 'check_circle',
-    authenticate: 'vendor',
-    color: 'brown',
-    dashboard: true
-  },
-  {
-    text: 'Coupons',
-    url: '/coupons',
-    icon: 'style',
-    authenticate: 'admin',
-    color: 'pink',
-    dashboard: true
-  },
-  {
-    text: 'Shippings',
-    url: '/shippings',
-    icon: 'local_shipping',
-    authenticate: 'admin',
-    color: 'red',
-    dashboard: true
-  },
-  {
-    text: 'Payments',
-    url: '/payments',
-    icon: 'payment',
-    authenticate: 'admin',
-    color: 'red',
-    dashboard: true
-  },
-  {
-    text: 'Users',
-    url: '/users',
-    icon: 'face',
-    img: 'auth.png',
-    authenticate: 'admin',
-    color: 'lime',
-    dashboard: true
-  },
-  {
-    text: 'Profile',
-    url: '/account/profile',
-    authenticate: 'user',
-    icon: 'person'
-  },
-  {
-    text: 'Change Password',
-    url: '/account/change-password',
-    authenticate: 'user',
-    icon: 'lock'
-  },
-  {
-    text: 'Settings',
-    url: '/settings',
-    authenticate: 'manager',
-    icon: 'settings'
-  },
-  { text: 'Site Pages', url: '/pages', authenticate: 'manager', icon: 'pages' },
-  {
-    text: 'Banners',
-    url: '/banners',
-    icon: 'burst_mode',
-    authenticate: 'manager',
-    color: 'yellow',
-    dashboard: true
-  },
-  { icon: 'help', text: 'FAQ', url: '/faq' }
-]
-```
-
-## Server Settings-2
-
-Path: <em>server/config.ts</em>
-
-### General Settings
-
-```js
-export const seedDatabase = true // Seeds database with some demo data when the database is empty
-export const port: number = 9000
-export const ip: string = '0.0.0.0'
-```
-
-### User Roles
-
-```js
-userRoles = ['user', 'vendor', 'manager', 'admin'] // This should be in ascending order of authority. e.g. In this case guest will not have access to any other role, where as admin will have the role of guest+user+vendor+manager+admin
-```
-
-### Forgot Password Email Settings
-
-```js
-export const forgotPasswordEmail = (body: any) => {
-  // Expects email id and password reset token
-  return {
-    from: 'passwordreset@arialshop.com',
-    to: body.email,
-    subject: 'Arialshop Password Reset Request',
-    text:
-      'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-      'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-      process.env.DOMAIN +
-      '/account/reset-password/' +
-      body.token +
-      '\n\n' +
-      'If you did not request this, please ignore this email and your password will remain unchanged.\n'
-  }
-}
-```
-
-### Reset Password Email Settings
-
-```js
-export const resetPasswordEmail = (body: any) => {
-  // Expects email id and name
-  return {
-    from: 'passwordreset@arialshop.com',
-    to: body.email,
-    subject: 'Arialshop Password Changed',
-    text:
-      'Hello,\n\n' +
-      'This is a confirmation that the password for your account ' +
-      body.to +
-      ' has just been changed.\n'
-  }
-}
-```
-
-### Order Placed Email Settings
-
-```js
-export const orderPlacedEmail = (body: any) => {
-  // Expects email id, orderNo, ...
-  return {
-    from: 'Arialshop <admin@arialshop.com>',
-    to: body.to,
-    subject: 'Order Placed Successfully',
-    text:
-      'Order No: ' +
-      body.orderNo +
-      '\n Status: ' +
-      body.status +
-      '\n\n Payment Method: ' +
-      body.payment_method +
-      '\n\n Payment ID: ' +
-      body.id +
-      '\n Amount: ' +
-      body.amount.currency +
-      ' ' +
-      Math.round((body.amount.total * 100) / body.amount.exchange_rate) / 100 +
-      '\n\n Name: ' +
-      body.address.recipient_name +
-      '\n Address: ' +
-      body.address.line1 +
-      '\n City: ' +
-      body.address.city +
-      '\n Zip: ' +
-      body.address.postal_code
-  }
-}
-```
-
-### Order Updated Email Settings
-
-```js
-export const orderUpdatedEmail = (body: any) => {
-  return {
-    from: 'Arialshop <admin@arialshop.com>',
-    to: body.to,
-    subject: 'Your Order Status Updated',
-    text:
-      'Order No: ' +
-      body.orderNo +
-      '\n Status: ' +
-      body.status +
-      '\n\n Payment Method: ' +
-      body.payment_method +
-      '\n\n Payment ID: ' +
-      body.id +
-      '\n Amount: ' +
-      body.amount.currency +
-      ' ' +
-      Math.round((body.amount.total * 100) / body.amount.exchange_rate) / 100 +
-      '\n\n \n Name: ' +
-      body.address.recipient_name +
-      '\n Address: ' +
-      body.address.line1 +
-      '\n City: ' +
-      body.address.city +
-      '\n State: ' +
-      body.address.state +
-      '\n Zip: ' +
-      body.address.postal_code
-  }
-}
-```
-
-## Environment Settings (Server Module)
-
-```js
-DEMO=false
-PORT=9000
-NODE_ENV=production
-PROXY=http://localhost:9000
-WS_URL=http://localhost:9000
-DOMAIN=http://localhost:3000 # used for paypal payments
-STORE_FRONT_URL=http://localhost:3001
-MONGODB_URI=mongodb://localhost:27017/arialshop-dev
-SESSION_SECRET=arialshop-secret
-PAYPAL_MODE=sandbox
-PAYPAL_CLIENT_ID=YOUR_PAYPAL_CLIENT_ID
-PAYPAL_CLIENT_SECRET=YOUR_PAYPAL_CLIENT_SECRET
-STRIPE_APIKEY=YOUR_STRIPE_APIKEY
-INSTAMOJO_SANDBOX_MODE=true
-INSTAMOJO_API_KEY=YOUR_INSTAMOJO_API_KEY
-INSTAMOJO_AUTH_KEY=YOUR_INSTAMOJO_AUTH_KEY
-SENDGRID_API_KEY=YOUR_SENDGRID_API_KEY
-GOOGLE_MAPS_API=YOUR_GOOGLE_MAPS_API
-FACEBOOK_ID=YOUR_FACEBOOK_ID
-FACEBOOK_SECRET=YOUR_FACEBOOK_SECRET
-TWITTER_ID=YOUR_TWITTER_ID
-TWITTER_SECRET=YOUR_TWITTER_SECRET
-GOOGLE_ID=YOUR_GOOGLE_ID
-GOOGLE_SECRET=YOUR_GOOGLE_SECRET
-TWILIO_API_KEY=YOUR_TWILIO_API_KEY
-FAST2SMS_API_KEY=YOUR_FAST2SMS_API_KEY
-Fast2SMS_OTP_TEMPLATE_ID=YOUR_Fast2SMS_OTP_TEMPLATE_ID
+];
 ```
