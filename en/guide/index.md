@@ -45,7 +45,7 @@ Being an **asynchronous event driven architecture** its speed goes upto 5 fold a
 
 Litekart is an evolution of ArialShop Javascript ecommerce first released 48 Earthian months back with a code name “ShopNx”
 
-- ArialShop V6 – “Litekart” V7 (GraphQL)
+- ArialShop V7 – “Litekart” V7 (GraphQL)
 - ArialShop V6 – “ArialShop” V6 (VueJS)
 - ArialShop V5 – Redeveloped core engine from scratch during over 8 months
 - ArialShop V4 – “Arialshop” (VueJS)

@@ -24,10 +24,16 @@ OR through terminal (Need [chocolatey](https://chocolatey.org/) for windows)
 # For Windows
 choco install nodejs mongodb yarn redis
 # OR for linux
-sudo apt-get install nodejs mongodb redis yarn
+sudo apt-get install nodejs mongodb redis
 ```
 
 ## Installation
+
+Download and unzip the file from codecanyon and navigate inside the directory
+
+```bash
+cd litekart-grocery
+```
 
 ### Start database
 
@@ -47,6 +53,10 @@ Run the follwoing commands from an elevated termnial/command prompt. In Windows 
 C:/Program Files/Redis-x64-3.2.100/redis-server.exe
 ```
 
+### Run the following commands in separate shell/terminal/command prompt
+
+This will install the required node dependencies and start the web apps
+
 ### Start GraphQL API
 
 ```bash
@@ -54,32 +64,14 @@ cd D:/litekart-grocery/api
 npm start
 ```
 
-### Start Store Front
+### Applications
 
 ```bash
-cd D:/litekart-grocery/www
-npm start
-```
-
-### Start Vendor APP
-
-```bash
-cd D:/litekart-grocery/vendor
-npm start
-```
-
-### Start Delivery Panel
-
-```bash
-cd D:/litekart-grocery/delivery
-npm start
-```
-
-### Start Admin Panel
-
-```bash
-cd D:/litekart-grocery/admin
-npm start
+cd D:\litekart-grocery
+npx http-server www -p 7777 -P http://localhost:7700
+npx http-server vendor -p 7776 -P http://localhost:7700
+npx http-server delivery -p 7775 -P http://localhost:7700
+npx http-server admin -p 7774 -P http://localhost:7700
 ```
 
 <div class="Alert Alert--nuxt-green">
