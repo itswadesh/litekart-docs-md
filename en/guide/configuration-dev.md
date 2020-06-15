@@ -5,6 +5,65 @@ description: By default, Litekart is configured to cover most use cases. This de
 
 > By default, Litekart is configured to cover most use cases. This default configuration can be overwritten by using the files inside config directory.
 
+## Client Settings
+
+### Client Secrets (Must be changed)
+
+Path: <em>.env</em>
+
+```js
+HTTP_ENDPOINT=http://localhost:7700
+WS_ENDPOINT=ws://localhost:7700
+GOOGLE_MAPS_API_KEY=AIzaSyCYDdBORAAuErqPZ8LomCSr-REST_OF_YOUR_GOOGLE_MAPS_API_KEY
+ONESIGNAL_APP_ID=cb37a0dc-REST_OF_YOUR_ONESIGNAL_APP_ID
+STRIPE_PUBLISHABLE_KEY=pk_test_REST_OF_YOUR_STRIPE_PUBLISHABLE_KEY
+WEBSITE_NAME=Litekart
+GOOGLE_ANALYTICS_ID=
+```
+
+### General Variables (Optional)
+
+Path: <em>shared/config/index.js</em>
+
+```js
+export const typingTimeout = 200; // After this delay the search api will be fired
+export const loadingTimeout = 500; // Loading indicator will be shown after this delay // used at Loading.vue of admin
+
+export const { HTTP_ENDPOINT = "https://gapi.litekart.in" } = process.env;
+
+export const { WS_ENDPOINT = "wss://gapi.litekart.in" } = process.env;
+
+export const { GOOGLE_ANALYTICS_ID = "UA-49421899-13" } = process.env;
+
+export const { STRIPE_PUBLISHABLE_KEY = "pk_test_" } = process.env;
+
+export const { ONESIGNAL_APP_ID = "" } = process.env;
+
+export const { GOOGLE_MAPS_API_KEY = "" } = process.env;
+
+export const { WEBSITE_NAME = "Litekart" } = process.env;
+
+export const HEAD = {
+  titleTemplate: `%s - ${WEBSITE_NAME}`,
+  htmlAttrs: { lang: "en" },
+  meta: [
+    { charset: "utf-8" },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1, user-scalable=no",
+    },
+    { "http-equiv": "x-ua-compatible", content: "ie=edge" },
+  ],
+  link: [
+    { rel: "icon", type: "image/x-icon", href: "favicon.ico" },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css?family=Nunito&display=swap",
+    },
+  ],
+};
+```
+
 ## Server Configurations
 
 ### Server Secrets (Must be updated)

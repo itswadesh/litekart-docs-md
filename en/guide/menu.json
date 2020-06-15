@@ -34,12 +34,24 @@
             "name": "Softwares Required"
           },
           {
-            "to": "#installation",
-            "name": "Installation Section"
+            "to": "#start-database",
+            "name": "Start database"
           },
           {
-            "to": "#start-database",
-            "name": "Start Database"
+            "to": "#start-cache",
+            "name": "Start Cache"
+          },
+          {
+            "to": "#start-graphql-api",
+            "name": "Start GraphQL API"
+          },
+          {
+            "to": "#start-apps",
+            "name": "Start Apps"
+          },
+          {
+            "to": "#uploading-to-server",
+            "name": "Uploading to server"
           }
         ]
       },

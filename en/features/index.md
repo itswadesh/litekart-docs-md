@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: 'Litekart features list'
+description: "Litekart features list"
 ---
 
 > Litekart Multi vendor marketplace features list
@@ -125,7 +125,6 @@ Spend $99 and start your ecommerce. Get 100+ premium features for free. No setup
 - Custom splash screen
 - Font resize correctly according to viewport
 - Optimized for page readers for better accessibility
-- Integrated Google Maps with automated address locator
 - HTML5 URLs without hash tag
 
 ## User Management
