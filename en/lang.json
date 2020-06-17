@@ -17,6 +17,12 @@
       "slug": "features",
       "type": "dynamic",
       "routeName": "section-slug"
+    },
+    {
+      "name": "Videos",
+      "slug": "videos",
+      "type": "dynamic",
+      "routeName": "section-slug"
     }
   ],
   "text": {

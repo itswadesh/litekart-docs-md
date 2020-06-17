@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Videos",
+    "links": [
+      {
+        "to": "#introduction",
+        "name": "Introduction",
+        "contents": [
+          {
+            "to": "#store-front",
+            "name": "Using store front"
+          },
+          {
+            "to": "#vendor",
+            "name": "Starting with vendor"
+          },
+          {
+            "to": "#delivery",
+            "name": "Delivery Panel"
+          },
+          {
+            "to": "#admin",
+            "name": "Admin Panel"
+          }
+        ]
+      }
+    ]
+  }
+]
