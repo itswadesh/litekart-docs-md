@@ -13,10 +13,10 @@ description: 'Video Tutorials for Litekart ecommerce'
 
 ## Videos
 
-![Store Front](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-store-front.gif){ width=100px }
+![Store Front](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-store-front.gif | width=100)[alt text][store front]
 
-![Vendor APP](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-vendor.gif)[alt text][tree]{width=100px}
+![Vendor APP](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-vendor.gif | width=100)[alt text][vendor app]
 
-![Delivery Panel](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-delivery.gif)[alt text][tree]{width=100px}
+![Delivery Panel](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-delivery.gif | width=100)[alt text][delivery panel]
 
-![Admin Panel](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-admin.gif)[alt text][tree]{width=100px}
+![Admin Panel](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-admin.gif | width=100)[alt text][admin panel]
