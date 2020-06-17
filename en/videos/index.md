@@ -13,7 +13,7 @@ description: 'Video Tutorials for Litekart ecommerce'
 
 ## Videos
 
-![Store Front](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-store-front.gif | width=100)[alt text][store front]
+<img src="https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-store-front.gif" width="100">
 
 ![Vendor APP](https://raw.githubusercontent.com/itswadesh/litekart-docs-md/master/videos/litekart-graocery-vendor.gif | width=100)[alt text][vendor app]
 
