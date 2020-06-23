@@ -6,7 +6,7 @@ description: How to install litekart grocery ecommerce script
 > Installations local/server is free for all. Please let me know if you need any help.
 
 <div class="Alert Alert--nuxt-green">
-COMPATIBILITY NOTE: Litekart requires Node.js > 14.x
+COMPATIBILITY NOTE: Litekart requires Node.js >= 14.x
 </div>
 
 ## Softwares Required
@@ -54,8 +54,15 @@ This will install the required node dependencies and start the web apps
 
 Modify `api/.env` with your credentials and run the following commands
 
+<div class="Alert Alert--nuxt-green">
+Note: Google maps is mandatory requirement. 
+</div>
+
+<a href="https://console.developers.google.com/apis/credentials">https://console.developers.google.com/apis/credentials</a>
+
 ```bash
 cd D:/litekart-grocery/api
+npm install --only=prod
 npm start
 ```
 
