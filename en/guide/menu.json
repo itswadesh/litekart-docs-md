@@ -72,6 +72,22 @@
       {
         "to": "/configuration",
         "name": "Configuration"
+      },
+      {
+        "to": "/customizations",
+        "name": "Customizations"
+      },
+      {
+        "to": "/google-maps-api-keys",
+        "name": "Google Maps Setup"
+      },
+      {
+        "to": "/sms-gateway-twilio-keys",
+        "name": "SMS Gateway"
+      },
+      {
+        "to": "/social-login",
+        "name": "Social Login"
       }
     ]
   }

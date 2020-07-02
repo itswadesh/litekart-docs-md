@@ -74,3 +74,31 @@ Client app A total of only **877kB min+gzip**.
 This is an extended version of [Litekart](https://www.litekart.in/), most of this scripts features are inspired from Litekart resulting speed and better usability.
 
 </div>
+
+## The Flow
+
+<div class="Alert Alert--nuxt-green">
+In this section we are going to understand how the application works.
+</div>
+
+## How does the Store Owner registers?
+
+There are two steps a Store Owner registers to the platform.
+
+- Self Registration through the Sign-Up page.
+- Admin approves the vendor
+
+## Self Registration
+
+In this process, any user can register for a role of Store Vendor.
+The registration page is https://grocery.litekart.in/login#/my
+After the registration, Admin will change the role of that user to vendor / delivery / admin
+
+The Delivery Application URL is: https://delivery.litekart.in/
+
+## The Application Flow
+
+- The Customer Places an Order with a Store.
+- The Store Owner, Vendor gets the new order on their Dashboard and accepts it.
+- The order is then visible to the preassigned Delivery Guy's Application.
+- The Delivery Guy picks-up the order and delivers the order to the Customer.
