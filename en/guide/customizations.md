@@ -3,8 +3,6 @@ title: Customizations
 description: How to override the default settings.
 ---
 
-# Customizations
-
 You get the fully working web app with Customer Application, Delivery Application, Admin, and Restaurant Dashboard with the Regular License. All the features mentioned in the Item's description will be available.
 The only thing that is not shipped with the Regular License is the Editable Vue Source Code. i.e., You only get the production-ready compiled JavaScript code for the front-end (Vue - Customer, Vendor and Delivery Application). But you will get fully editable back-end codebase (NodeJS - Admin and Restaurant Dashboard).
 
